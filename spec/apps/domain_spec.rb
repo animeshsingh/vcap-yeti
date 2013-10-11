@@ -56,7 +56,7 @@ describe "Domains", :runtime => true do
       expect {
         domain.delete!
       }.to raise_error(
-        CFoundry::APIError, /10006: Please delete the routes associations for your domains./
+     CFoundry::AssociationNotEmpty, /Domain is not empty. To delete, please remove the following associations: routes./
       )
 
       route.delete!
